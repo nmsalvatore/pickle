@@ -2,6 +2,8 @@ import './style.css';
 import './listeners';
 import wordList from './word_list.json'
 
+// testing
+
 export const game = {
     rowNum: 1,
     over: false,
