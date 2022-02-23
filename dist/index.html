@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/e50da3179f.js" crossorigin="anonymous"></script>
+    <title>Pickle</title>
+</head>
+<body class="flex flex-col noselect">
+    <header id="gameHeader" class="flex flex-center">
+        <h1 class="flex flex-center">Pickle</h1>
+    </header>
+    <main id="gameContainer">
+        <div id="selectionPrompt"></div>
+        <div id="gameBoard"></div>
+    </main>
+    <section id="numInputContainer" class="hidden">
+        <div id="numInputPrompt">
+            <h5>Pick a Wordle number from 0 to <span id="numInputMax"></span>:</h5>
+            <span id="numInput"></span>
+            <div id="numKeyboard">
+                <div class="num-key">1</div>
+                <div class="num-key">2</div>
+                <div class="num-key">3</div>
+                <div class="num-key">4</div>
+                <div class="num-key">5</div>
+                <div class="num-key">6</div>
+                <div class="num-key">7</div>
+                <div class="num-key">8</div>
+                <div class="num-key">9</div>
+                <div class="num-key">0</div>
+                <i id="numBack" class="fas fa-backspace"></i>
+                <div id="numEnter">Enter</div>
+            </div>
+            <i id="closePromptBtn" class="fas fa-times"></i>
+        </div>
+    </section>
+    <footer id="keyboard" class="flex flex-col">
+        <div class="flex flex-row flex-center">
+            <div class="key" id="keyQ">q</div>
+            <div class="key" id="keyW">w</div>
+            <div class="key" id="keyE">e</div>
+            <div class="key" id="keyR">r</div>
+            <div class="key" id="keyT">t</div>
+            <div class="key" id="keyY">y</div>
+            <div class="key" id="keyU">u</div>
+            <div class="key" id="keyI">i</div>
+            <div class="key" id="keyO">o</div>
+            <div class="key" id="keyP">p</div>
+        </div>
+        <div class="flex flex-row flex-center">
+            <div class="key" id="keyA">a</div>
+            <div class="key" id="keyS">s</div>
+            <div class="key" id="keyD">d</div>
+            <div class="key" id="keyF">f</div>
+            <div class="key" id="keyG">g</div>
+            <div class="key" id="keyH">h</div>
+            <div class="key" id="keyJ">j</div>
+            <div class="key" id="keyK">k</div>
+            <div class="key" id="keyL">l</div>
+        </div>
+        <div class="flex flex-row flex-center">
+            <div class="key" id="enter">enter</div>
+            <div class="key" id="keyZ">z</div>
+            <div class="key" id="keyX">x</div>
+            <div class="key" id="keyC">c</div>
+            <div class="key" id="keyV">v</div>
+            <div class="key" id="keyB">b</div>
+            <div class="key" id="keyN">n</div>
+            <div class="key" id="keyM">m</div>
+            <i class="key fas fa-backspace" id="backspace"></i>
+        </div>
+    </footer>
+
+    <script src="./bundle.js"></script>
+</body>
+</html>
