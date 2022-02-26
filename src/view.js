@@ -1,4 +1,5 @@
 import { game } from './app';
+import { archive } from './archive';
 
 export const view = {
     renderBoard() {
@@ -10,23 +11,8 @@ export const view = {
             gameBoard.appendChild(square);
         }
     },
-    renderSelectionPrompt() {
-        const selectionPrompt = document.getElementById('selectionPrompt');
-        const buttonContainer = document.createElement('div');
-        const buttonNames = ['Select From Wordle Archive', 'Random From Wordle Archive', 'Yesterday\'s Wordle'];
-
-        buttonContainer.id = 'buttons';
-        buttonContainer.className = 'flex flex-col flex-center';
-        selectionPrompt.appendChild(buttonContainer);
-
-        buttonNames.forEach(name => {
-            const button = document.createElement('button');
-            button.textContent = name;
-            button.classList.add('selection-btn');
-            buttonContainer.appendChild(button);
-        });
-    },
     renderNumInputContainer() {
+        numInputMax.textContent = archive.getYesterdayNum();
         numInputContainer.classList.add('flex');
         numInputContainer.classList.remove('hidden');
     },
@@ -59,7 +45,7 @@ export const view = {
 
         gameBoardSquares.forEach((square, index) => {
             const rowNum = Math.ceil((index+0.1)/5);
-            const row = `row${rowNum}`;
+            const row = rowNum;
             const rowPos = index % 5;
             const board = game.getBoard()
             const entry = board[row][rowPos];

@@ -1,8 +1,4 @@
-import './style.css';
-import './listeners';
 import wordList from './word_list.json'
-
-// testing
 
 export const game = {
     rowNum: 1,
@@ -15,12 +11,12 @@ export const game = {
         absent: [],
     },
     board: {
-        'row1': [],
-        'row2': [],
-        'row3': [],
-        'row4': [],
-        'row5': [],
-        'row6': []
+        1: [],
+        2: [],
+        3: [],
+        4: [],
+        5: [],
+        6: []
     },
     addLetter(letter, row) {
         this.board[row].push({

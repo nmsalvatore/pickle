@@ -7,19 +7,25 @@
     <script src="https://kit.fontawesome.com/e50da3179f.js" crossorigin="anonymous"></script>
     <title>Pickle</title>
 </head>
-<body class="flex flex-col noselect">
-    <header id="gameHeader" class="flex flex-center">
-        <h1 class="flex flex-center">Pickle</h1>
+<body class="flex col noselect">
+    <header id="gameHeader" class="flex center">
+        <h1 class="flex center">Pickle</h1>
     </header>
     <main id="gameContainer">
-        <div id="selectionPrompt"></div>
-        <div id="gameBoard"></div>
+        <div id="selectionPrompt">
+            <div class="btn-container flex col center">
+                <button id="selectBtn" class="menu-btn">Select From Wordle Archive</button>
+                <button id="randomBtn" class="menu-btn">Random From Wordle Archive</button>
+                <button id="yesterdayBtn" class="menu-btn">Yesterday's Wordle</button>
+            </div>
+        </div>
+        <div id="gameBoard" class="hidden"></div>
     </main>
     <section id="numInputContainer" class="hidden">
         <div id="numInputPrompt">
             <h5>Pick a Wordle number from 0 to <span id="numInputMax"></span>:</h5>
             <span id="numInput"></span>
-            <div id="numKeyboard">
+            <div class="num-keypad">
                 <div class="num-key">1</div>
                 <div class="num-key">2</div>
                 <div class="num-key">3</div>
@@ -30,14 +36,14 @@
                 <div class="num-key">8</div>
                 <div class="num-key">9</div>
                 <div class="num-key">0</div>
-                <i id="numBack" class="fas fa-backspace"></i>
-                <div id="numEnter">Enter</div>
+                <i class="backspace fas fa-backspace"></i>
+                <div class="enter">Enter</div>
             </div>
-            <i id="closePromptBtn" class="fas fa-times"></i>
+            <i class="close-btn fas fa-times"></i>
         </div>
     </section>
-    <footer id="keyboard" class="flex flex-col">
-        <div class="flex flex-row flex-center">
+    <footer class="keyboard flex col">
+        <div class="flex row center">
             <div class="key" id="keyQ">q</div>
             <div class="key" id="keyW">w</div>
             <div class="key" id="keyE">e</div>
@@ -49,7 +55,7 @@
             <div class="key" id="keyO">o</div>
             <div class="key" id="keyP">p</div>
         </div>
-        <div class="flex flex-row flex-center">
+        <div class="flex row center">
             <div class="key" id="keyA">a</div>
             <div class="key" id="keyS">s</div>
             <div class="key" id="keyD">d</div>
@@ -60,8 +66,8 @@
             <div class="key" id="keyK">k</div>
             <div class="key" id="keyL">l</div>
         </div>
-        <div class="flex flex-row flex-center">
-            <div class="key" id="enter">enter</div>
+        <div class="flex row center">
+            <div id="enter" class="enter key">enter</div>
             <div class="key" id="keyZ">z</div>
             <div class="key" id="keyX">x</div>
             <div class="key" id="keyC">c</div>
@@ -69,7 +75,7 @@
             <div class="key" id="keyB">b</div>
             <div class="key" id="keyN">n</div>
             <div class="key" id="keyM">m</div>
-            <i class="key fas fa-backspace" id="backspace"></i>
+            <i id="backspace" class="backspace key fas fa-backspace"></i>
         </div>
     </footer>
 
