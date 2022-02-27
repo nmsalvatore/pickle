@@ -1,6 +1,6 @@
 import wordList from './word_list.json';
 
-const epoch = new Date('2021-6-19');
+const epoch = new Date('2021/06/19');
 const currentNum = Math.floor((Date.now() - epoch) / 86400000);
 const yesterdayNum = currentNum - 1;
 
