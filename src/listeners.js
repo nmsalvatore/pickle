@@ -24,6 +24,8 @@ document.addEventListener('click', e => {
     }
 });
 
+closeBtn.addEventListener('click', view.hideNumInputContainer)
+
 // listener function for number pad events
 function listenForNumPadEvents() {
     let num = '';
