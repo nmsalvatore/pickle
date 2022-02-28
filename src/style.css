@@ -49,13 +49,13 @@ header h1 {
     width: 75vw;
     height: 15vw;
     margin: 0.25rem;
-    border: 2px solid var(--lt-grey);
     border-radius: 3px;
     font-family: var(--default-font);
     font-weight: 700;
     font-size: 0.75rem;
     text-transform: uppercase;
-    background: var(--white);
+    background: var(--lt-grey);
+    border: none;
     color: var(--black);
 }
 
@@ -335,14 +335,8 @@ header h1 {
               user-select: none;
 }
 
-/* testing */
-#test {
-    position: absolute;
-    min-height: 100vh;
-    width: 100vw;
-    font-size: 1rem;
-    background: white;
-    display: none;
-    justify-content: center;
-    align-items: center;
+#randomBtn {
+    background: var(--correct);
+    border: none;
+    color: var(--white)
 }
