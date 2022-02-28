@@ -84,5 +84,5 @@ export const view = {
     hideNumInputContainer() {
         numInputContainer.classList.add('hidden');
         numInputContainer.classList.remove('flex');
-    }
+    },
 }

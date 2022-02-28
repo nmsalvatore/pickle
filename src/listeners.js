@@ -122,7 +122,51 @@ function submitWord(row) {
         game.updateHints(row);
         view.renderKeyHints();
         checkForEndgame(word, row);
+        
+        if (game.over) setEndgameHeading(word, row);
     }
+}
+
+function setEndgameHeading(word, row) {
+    setEndgameResult(word, row);
+    
+    setInterval(() => {
+        if (gameHeading.textContent == 'Play Again?') {
+            setEndgameResult(word, row);
+        } else {
+            setPlayAgainHeading();
+        }
+    }, 2000)
+}
+
+function setEndgameResult(word, row) {
+    if (word == game.winningWord) {
+        switch (row) {
+            case 1:
+                gameHeading.textContent = 'Wizard!';
+                break;
+            case 2:
+                gameHeading.textContent = 'Amazing!'
+                break;
+            case 3:
+                gameHeading.textContent = 'Incredible!';
+                break;
+            case 4:
+                gameHeading.textContent = 'Well done!';
+                break;
+            case 5:
+                gameHeading.textContent = 'Nice job!';
+                break;
+            case 6:
+                gameHeading.textContent = 'You got it!'
+        }
+    } else if (row == 6) {
+        gameHeading.textContent = game.winningWord;
+    }
+}
+
+function setPlayAgainHeading() {
+    gameHeading.textContent = 'Play Again?';
 }
 
 function checkForEndgame(word, row) {
