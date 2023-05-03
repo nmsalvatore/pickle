@@ -1,6 +1,8 @@
 import { game } from './app';
 import { view } from './view';
 import { archive } from './archive';
+import { share } from './share';
+import { countRowsCompleted, copyToClipboard } from './utils';
 
 view.hideBoard();
 view.renderSelectionPrompt();
@@ -87,6 +89,19 @@ document.addEventListener('click', e => {
     if (e.target.id == 'closePromptBtn') {
         view.hideNumInputContainer();
     }
+
+    if (e.target.id == 'playAgainButton') {
+        location.reload();
+    }
+
+    if (e.target.id == 'shareButton') {
+        const board = game.board;
+        const emojis = share.generateWordleEmojis(board);
+        const num = archive.getWordNum(game.winningWord);
+        const rowsCompleted = countRowsCompleted(board);
+        const answer = 'Wordle ' + num + ' ' + rowsCompleted + '/6\n' + emojis;
+        copyToClipboard(answer);
+    }
 });
 
 function startGame(word) {
@@ -97,7 +112,9 @@ function startGame(word) {
 }
 
 function listenForKeys(code, key) {
-    if (game.over) return;
+    if (game.over) {
+        return;
+    }
 
     const isKey = code.slice(0,3) == 'Key';
     const row = `row${game.rowNum}`;
@@ -124,8 +141,16 @@ function listenForKeys(code, key) {
             view.renderKeyHints();
             view.updateBoard();
 
-            if (word == game.winningWord || row == 'row6') {
+            if (word == game.winningWord) {
                 game.over = true;
+                setTimeout(() => {
+                    view.renderGameOverPrompt();
+                }, 500)
+            } else if (row == 'row6') {
+                game.over = true;
+                setTimeout(() => {
+                    view.renderGameOverPrompt(game.winningWord)
+                }, 500)
             } else {
                 game.incrementRow();
             }

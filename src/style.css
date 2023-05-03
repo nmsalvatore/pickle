@@ -3,8 +3,8 @@
     --lt-grey: #d3d6da;
     --drk-grey: #6c6f71;
     --black: #000000;
-    --present: #e1be6a;
-    --correct: #40b0a6;
+    --present: #e0c36c;
+    --correct: #49ab72;
     --default-font: 'Helvetica Neue', Helvetica, sans-serif;
 }
 
@@ -44,15 +44,10 @@ header h1 {
     cursor: pointer;
     width: 75vw;
     height: 15vw;
-    margin: 0.25rem;
-    border: 2px solid var(--lt-grey);
+    margin: 8px;
+    letter-spacing: 0.3px;
+    border: 1px solid #ddd;
     border-radius: 3px;
-    font-family: var(--default-font);
-    font-weight: 700;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    background: var(--white);
-    color: var(--black);
 }
 
 #gameContainer {
@@ -96,7 +91,8 @@ header h1 {
     background: var(--drk-grey);
 }
 
-#numInputContainer {
+#numInputContainer,
+#gameOverContainer {
     justify-content: center;
     align-items: center;
     position: absolute;
@@ -104,6 +100,41 @@ header h1 {
     min-height: 100vh;
     min-height: -webkit-fill-available;
     background: rgba(0,0,0,0.25);
+}
+
+#gameOverPrompt {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: var(--white);
+    box-shadow: 0 4px 23px 0 rgb(0 0 0 / 20%);
+    border-radius: 5px;
+    padding: 15vw;
+    margin-bottom: 8rem;
+}
+
+#gameOverPrompt button {
+    width: 28vw;
+    padding: 8px;
+    margin-bottom: 8px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+#gameOverPrompt button:last-child {
+    margin-bottom: 0;
+}
+
+#winningWord {
+    margin-bottom: 3rem;
+}
+
+#shareButton {
+    background: var(--correct);
+    color: var(--white);
+    border: 1px solid var(--correct) !important;
 }
 
 #numInputPrompt {
@@ -116,12 +147,14 @@ header h1 {
     box-shadow: 0 4px 23px 0 rgb(0 0 0 / 20%);
     border-radius: 5px;
     padding: 15vw;
+    margin-bottom: 2rem;
 }
 
 #numInputPrompt h5 {
     width: 40vw;
     text-align: center;
     margin-bottom: 5vw;
+    font-weight: 500;
 }
 
 #numInput {
@@ -166,11 +199,12 @@ header h1 {
 
 #closePromptBtn {
     cursor: pointer;
-    background: var(--white);
+    background: transparent;
     position: absolute;
     top: 0;
     right: 0;
     color: var(--drk-grey);
+    border-radius: 5px;
     padding: 1rem;
 }
 

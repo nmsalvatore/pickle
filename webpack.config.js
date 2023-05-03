@@ -1,4 +1,8 @@
+const dotenv = require('dotenv');
+const webpack = require('webpack');
 const path = require('path');
+
+dotenv.config();
 
 module.exports = {
   entry: './src/app.js',
@@ -22,4 +26,9 @@ module.exports = {
     compress: true,
     port: 9000,
   },
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env': JSON.stringify(process.env)
+    })
+  ]  
 };

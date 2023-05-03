@@ -50,6 +50,17 @@ export const view = {
             }
         });
     },
+    renderGameOverPrompt(heading='Nice job!') {
+        const container = document.getElementById('gameOverContainer');
+        const winningWord = document.getElementById('winningWord');
+        container.classList.remove('hidden');
+        container.classList.add('flex');
+        if (heading == 'Nice job!') {
+            winningWord.innerText = heading;
+        } else {
+            winningWord.innerText = heading.toUpperCase();
+        }
+    },
     showBoard() {
         gameBoard.classList.add('grid');
         gameBoard.classList.remove('hidden');
