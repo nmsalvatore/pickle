@@ -19,9 +19,16 @@ def get_wordle_answers():
     response = requests.get(url)
     response.raise_for_status()
     soup = BeautifulSoup(response.content, 'html.parser')
+
+    answers = []
     
-    answers_elements = soup.select('tr > td > strong')
-    answers = [element.getText().lower() for element in answers_elements]
+    answer_elements = soup.select('tr > td > strong')
+    for el in answer_elements:
+        num = int(el.find_parent().find_previous_sibling().getText().strip())
+        word = el.getText().strip().lower()
+        answer = {'num': num, 'word': word}
+        answers.append(answer)
+
     return answers[::-1]
 
 
