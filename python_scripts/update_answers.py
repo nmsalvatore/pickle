@@ -33,14 +33,14 @@ def add_word_to_answers(filename, new_word):
     # Make sure word isn't already in list
     last_word = answers[-1]
     if last_word == new_word:
-        print('Today\'s word is already in the list.')
+        new_wordle_num = answers.index(new_word.lower())
+        print(f'Wordle #{new_wordle_num} has already been added to the list. No changes made.')
         return
 
     # Add the new word to the list
-    new_word_lowercase = new_word.lower()
-    answers.append(new_word_lowercase)
-    wordle_num = answers.index(new_word_lowercase)
-    print(f'Wordle #{wordle_num} has been added to the word list.')
+    answers.append(new_word.lower())
+    new_wordle_num = answers.index(new_word.lower())
+    print(f'Wordle #{new_wordle_num} has been added to the word list.')
 
     # Write the updated list back to the JSON file
     with open(filename, "w") as outfile:
