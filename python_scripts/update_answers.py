@@ -15,7 +15,7 @@ def get_todays_answer():
     :return: A list of Wordle answers in reverse order, from the latest to the earliest.
     :rtype: list
     """
-    url = 'https://wordfinder.yourdictionary.com/wordle/answers/'
+    url = os.getenv('ANSWERS_SOURCE_URL')
     response = requests.get(url)
     response.raise_for_status()
     soup = BeautifulSoup(response.content, 'html.parser')
