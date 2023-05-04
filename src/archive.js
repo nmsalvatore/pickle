@@ -1,7 +1,6 @@
 async function fetchAnswerList() {
     try {
         const jsonPath = process.env.WEBPACK_ANSWERS_JSON_PATH;
-        console.log(jsonPath)
         const response = await fetch(jsonPath);
         const data = await response.json();
         return data.answers;
