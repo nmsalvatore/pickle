@@ -16,34 +16,35 @@ const archive = {
 
     async initialize() {
         const epoch = new Date('2021-6-19');
-        this.currentNum = Math.floor((Date.now() - epoch) / 86400000);
-        this.yesterdayNum = this.currentNum - 1;
+        this.currentWordNumber = Math.floor((Date.now() - epoch) / 86400000);
+        this.yesterdaysWordNumber = this.currentWordNumber - 1;
         this.answers = await fetchAnswerList();
     },
 
-    getWordle(num) {
-        return this.answers[num];
+    getYesterdaysWord() {
+        const number = this.yesterdaysWordNumber;
+        const answer = this.answers.find(answer => answer.number == number);
+        return answer.word;
     },
 
-    getYesterday() {
-        return this.answers[this.yesterdayNum];
+    getSelectWord(number) {
+        const answer = this.answers.find(answer => answer.number == number);
+        return answer.word;
     },
 
-    getWord(num) {
-        return this.answers[num];
+    getRandomWord() {
+        const number = Math.floor(Math.random() * this.currentWordNumber);
+        const answer = this.answers.find(answer => answer.number == number);
+        return answer.word;
     },
 
-    getRandom() {
-        const random = Math.floor(Math.random() * this.currentNum);
-        return this.answers[random];
+    getWordNumber(word) {
+        const answer = this.answers.find(answer => answer.word == word);
+        return answer.number;
     },
 
-    getWordNum(word) {
-        return this.answers.indexOf(word);
-    },
-
-    getYesterdayNum() {
-        return this.yesterdayNum;
+    getYesterdaysWordNumber() {
+        return this.yesterdaysWordNumber;
     }
 };
 

@@ -19,7 +19,7 @@ def get_todays_answer():
     subheading = answer_section.find(class_='subheading')
     number = int(re.search(r'\(#(\d+)\)', subheading.get_text()).group(1))
     word = answer_section.find(class_='answer').get_text(strip=True).lower()
-    answer = {'num': number, 'word': word}
+    answer = {'number': number, 'word': word}
 
     return answer
 
@@ -32,11 +32,11 @@ def add_word_to_answers(filename, new_answer):
 
     # Get new Wordle word and number values
     new_wordle_word = new_answer['word']
-    new_wordle_num = new_answer['num']
+    new_wordle_num = new_answer['number']
 
     # Get last Wordle word and number values
     last_wordle_word = answers[-1]['word']
-    last_wordle_number = answers[-1]['num']
+    last_wordle_number = answers[-1]['number']
 
     # Check that word isn't already in list
     if last_wordle_word == new_wordle_word:

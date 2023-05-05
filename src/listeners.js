@@ -18,7 +18,7 @@ document.addEventListener('keydown', e => {
             return;
         }
 
-        if (num + e.key <= archive.getYesterdayNum()) {
+        if (num + e.key <= archive.getYesterdaysWordNumber()) {
             num += e.key;
             numInput.textContent = num;
         }
@@ -31,7 +31,7 @@ document.addEventListener('keydown', e => {
 
     if (e.key == 'Enter' && num != '') {
         numInputContainer.style.display = 'none';
-        startGame(archive.getWord(num));
+        startGame(archive.getSelectWord(num));
         num = '';
     }
 
@@ -44,16 +44,16 @@ document.addEventListener('click', e => {
     const inGame = gameBoard.classList.contains('in-game');
 
     if (e.target.textContent == "Yesterday's Wordle") {
-        startGame(archive.getYesterday());
+        startGame(archive.getYesterdaysWord());
     }
 
     if (e.target.textContent == 'Random From Wordle Archive') {
-        startGame(archive.getRandom());
+        startGame(archive.getRandomWord());
     }
 
     if (e.target.textContent == 'Select From Wordle Archive') {
         view.renderNumInputContainer();
-        numInputMax.textContent = archive.getYesterdayNum();
+        numInputMax.textContent = archive.getYesterdaysWordNumber();
     }
 
     if (e.target.classList.contains('key') && inGame) {
@@ -69,7 +69,7 @@ document.addEventListener('click', e => {
             return;
         }
 
-        if (num + e.target.textContent <= archive.getYesterdayNum()) {
+        if (num + e.target.textContent <= archive.getYesterdaysWordNumber()) {
             num += e.target.textContent;
             numInput.textContent = num;
         }
@@ -81,7 +81,7 @@ document.addEventListener('click', e => {
     }
 
     if (e.target.id == 'numEnter' && num != '') {
-        startGame(archive.getWord(num));
+        startGame(archive.getSelectWord(num));
         view.hideNumInputContainer();
         num = '';
     }
@@ -97,7 +97,7 @@ document.addEventListener('click', e => {
     if (e.target.id == 'shareButton') {
         const board = game.board;
         const emojis = share.generateWordleEmojis(board);
-        const num = archive.getWordNum(game.winningWord);
+        const num = archive.getWordNumber(game.winningWord);
         const rowsCompleted = countRowsCompleted(board);
         const answer = 'Wordle ' + num + ' ' + rowsCompleted + '/6\n' + emojis;
         copyToClipboard(answer);

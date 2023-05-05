@@ -24,9 +24,9 @@ def get_wordle_answers():
     
     answer_elements = soup.select('tr > td > strong')
     for el in answer_elements:
-        num = int(el.find_parent().find_previous_sibling().getText().strip())
+        number = int(el.find_parent().find_previous_sibling().getText().strip())
         word = el.getText().strip().lower()
-        answer = {'num': num, 'word': word}
+        answer = {'number': number, 'word': word}
         answers.append(answer)
 
     return answers[::-1]
