@@ -1,4 +1,5 @@
 import { game } from './app';
+import { archive } from './archive';
 
 export const view = {
     renderBoard() {
@@ -10,6 +11,7 @@ export const view = {
             gameBoard.appendChild(square);
         }
     },
+
     renderSelectionPrompt() {
         const selectionPrompt = document.getElementById('selectionPrompt');
         const buttonContainer = document.createElement('div');
@@ -26,10 +28,12 @@ export const view = {
             buttonContainer.appendChild(button);
         });
     },
+
     renderNumInputContainer() {
         numInputContainer.classList.add('flex');
         numInputContainer.classList.remove('hidden');
     },
+
     renderKeyHints() {
         const keys = document.querySelectorAll('.key');
 
@@ -50,6 +54,7 @@ export const view = {
             }
         });
     },
+
     renderGameOverPrompt(heading='Nice job!') {
         const container = document.getElementById('gameOverContainer');
         const winningWord = document.getElementById('winningWord');
@@ -61,10 +66,18 @@ export const view = {
             winningWord.innerText = heading.toUpperCase();
         }
     },
+
+    renderWordleNumber(word) {
+        const wordleNumberElement = document.getElementById('wordleNumber')
+        const number = archive.getWordNumber(word);
+        wordleNumberElement.innerText = '#' + number;
+    },
+
     showBoard() {
         gameBoard.classList.add('grid');
         gameBoard.classList.remove('hidden');
     },
+
     updateBoard() {
         const gameBoardSquares = document.querySelectorAll('.square');
 
@@ -99,13 +112,16 @@ export const view = {
             }
         });
     },
+
     hideBoard() {
         gameBoard.classList.add('hidden');
         gameBoard.classList.remove('grid');
     },
+
     hideSelectionPrompt() {
         selectionPrompt.classList.add('hidden');
     },
+
     hideNumInputContainer() {
         numInputContainer.classList.add('hidden');
         numInputContainer.classList.remove('flex');

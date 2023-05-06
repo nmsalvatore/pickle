@@ -1,6 +1,6 @@
 :root {
     --white: #ffffff;
-    --lt-grey: #d3d6da;
+    --lt-grey: #e9eaed;
     --drk-grey: #6c6f71;
     --black: #000000;
     --present: #e0c36c;
@@ -28,6 +28,10 @@ body {
     min-height: -webkit-fill-available;
 }
 
+header {
+    position: relative;
+}
+
 header h1 {
     margin: 0 auto;
     cursor: pointer;
@@ -40,27 +44,38 @@ header h1 {
     text-transform: uppercase;
 }
 
+header #gameStats {
+    position: absolute;
+    right: 8px;
+    color: #333;
+    font-size: 16px;
+}
+
 #selectionPrompt button {
     cursor: pointer;
     width: 75vw;
     height: 15vw;
     margin: 8px;
     letter-spacing: 0.3px;
-    border: 1px solid #ddd;
+    border: none;
+    color: #333;
+    background: #f1f2f4;
     border-radius: 3px;
 }
 
 #gameContainer {
+    display: flex;
+    flex-direction: column;
     position: relative;
-    padding: 1.5rem 0;
+    margin-bottom: 67px;
 }
 
 #gameBoard {
     grid-template-rows: repeat(6, 1fr);
     grid-template-columns: repeat(5, 1fr);
     grid-gap: 5px;
-    width: 75vw;
-    height: 91vw;
+    width: calc(93vw - 10px);
+    height: 110vw;
 }
 
 #gameBoard .square {
@@ -116,10 +131,10 @@ header h1 {
 }
 
 #gameOverPrompt button {
-    width: 28vw;
-    padding: 8px;
-    margin-bottom: 8px;
-    border: 1px solid #ddd;
+    width: 40vw;
+    padding: 12px;
+    margin-bottom: 12px;
+    border: none;
     border-radius: 3px;
 }
 
@@ -135,6 +150,17 @@ header h1 {
     background: var(--correct);
     color: var(--white);
     border: 1px solid var(--correct) !important;
+}
+
+#wordleNumber {
+    color: #333;
+    letter-spacing: 0.5px;
+    font-size: 12px;
+    font-weight: 500;
+    text-align: right;
+    padding-bottom: 12px;
+    margin-right: 2px;
+    margin-top: 40px;
 }
 
 #numInputPrompt {

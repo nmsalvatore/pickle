@@ -60,7 +60,7 @@ document.addEventListener('click', e => {
         listenForKeys(capitalize(e.target.id), e.target.textContent);
     }
 
-    if (e.target.parentNode.id == 'gameHeader') {
+    if (e.target.id == 'gameTitle') {
         location.reload();
     }
 
@@ -94,6 +94,29 @@ document.addEventListener('click', e => {
         location.reload();
     }
 
+    const gameOverPrompt = document.getElementById('gameOverPrompt');
+    if (!gameOverPrompt.contains(e.target)) {
+        const gameOverContainer = document.getElementById('gameOverContainer');
+        const gameStatsButton = document.getElementById('gameStats');
+
+        if (gameOverContainer.classList.contains('flex')) {
+            gameOverContainer.classList.remove('flex');
+            gameOverContainer.classList.add('hidden');
+            gameStatsButton.classList.remove('hidden');
+        }
+    }
+
+    if (e.target.id == 'gameStats') {
+        const gameOverContainer = document.getElementById('gameOverContainer');
+        const gameStatsButton = document.getElementById('gameStats');
+
+        if (gameOverContainer.classList.contains('hidden')) {
+            gameOverContainer.classList.add('flex');
+            gameOverContainer.classList.remove('hidden');
+            gameStatsButton.classList.add('hidden');
+        }
+    }
+
     if (e.target.id == 'shareButton') {
         const board = game.board;
         const emojis = share.generateWordleEmojis(board);
@@ -109,6 +132,7 @@ function startGame(word) {
     view.showBoard();
     view.hideSelectionPrompt();
     view.renderBoard();
+    view.renderWordleNumber(word);
 }
 
 function listenForKeys(code, key) {
@@ -145,7 +169,7 @@ function listenForKeys(code, key) {
                 game.over = true;
                 setTimeout(() => {
                     view.renderGameOverPrompt();
-                }, 500)
+                }, 1000)
             } else if (row == 'row6') {
                 game.over = true;
                 setTimeout(() => {
