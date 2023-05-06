@@ -74,8 +74,8 @@ header #gameStats {
     grid-template-rows: repeat(6, 1fr);
     grid-template-columns: repeat(5, 1fr);
     grid-gap: 5px;
-    width: calc(93vw - 10px);
-    height: 110vw;
+    width: 75vw;
+    height: 91vw;
 }
 
 #gameBoard .square {
