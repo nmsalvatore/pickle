@@ -46,9 +46,11 @@ header h1 {
 
 header #gameStats {
     position: absolute;
-    right: 8px;
+    cursor: pointer;
+    right: 0;
     color: #333;
     font-size: 16px;
+    padding: 1rem;
 }
 
 #selectionPrompt button {
