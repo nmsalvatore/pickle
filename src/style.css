@@ -165,6 +165,7 @@ header #gameStats {
     font-weight: 500;
     text-align: right;
     padding-bottom: 8px;
+    padding-top: 8px;
     margin-right: 2px;
     width: 80%;
 }
