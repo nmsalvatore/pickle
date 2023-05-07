@@ -81,7 +81,7 @@ header #gameStats {
     grid-gap: 5px;
     width: 78%;
     height: 100vw;
-    padding-bottom: 18px;
+    padding-bottom: 22px;
 }
 
 #gameBoard .square {
