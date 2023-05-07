@@ -67,16 +67,21 @@ header #gameStats {
 
 #gameContainer {
     display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
     position: relative;
+    width: 100%;
 }
 
 #gameBoard {
     grid-template-rows: repeat(6, 1fr);
     grid-template-columns: repeat(5, 1fr);
     grid-gap: 5px;
-    width: 75vw;
-    height: 91vw;
+    width: 78%;
+    height: 100vw;
+    padding-bottom: 18px;
 }
 
 #gameBoard .square {
@@ -159,8 +164,9 @@ header #gameStats {
     font-size: 12px;
     font-weight: 500;
     text-align: right;
-    padding-bottom: 12px;
+    padding-bottom: 8px;
     margin-right: 2px;
+    width: 78%;
 }
 
 #numInputPrompt {
