@@ -80,8 +80,10 @@ header #gameStats {
     grid-template-columns: repeat(5, 1fr);
     grid-gap: 5px;
     width: 78%;
-    height: 100vw;
+    height: 98vw;
     padding-bottom: 22px;
+    margin-top: 28px;
+    position: relative;
 }
 
 #gameBoard .square {
@@ -159,15 +161,13 @@ header #gameStats {
 }
 
 #wordleNumber {
+    position: absolute;
+    top: -28px;
+    right: 0px;
     color: #333;
     letter-spacing: 0.5px;
     font-size: 12px;
     font-weight: 500;
-    text-align: right;
-    padding-bottom: 8px;
-    padding-top: 8px;
-    margin-right: 2px;
-    width: 80%;
 }
 
 #numInputPrompt {
