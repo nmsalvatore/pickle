@@ -79,8 +79,8 @@ header #gameStats {
     grid-template-rows: repeat(6, 1fr);
     grid-template-columns: repeat(5, 1fr);
     grid-gap: 5px;
-    width: 78%;
-    height: 98vw;
+    width: 75%;
+    height: 96vw;
     padding-bottom: 22px;
     margin-top: 28px;
     position: relative;
@@ -160,11 +160,23 @@ header #gameStats {
     border: 1px solid var(--correct) !important;
 }
 
+#shareButton.copied {
+    background: #efefef;
+    color: #aaa;
+    border: 1px solid #efefef !important;
+}
+
+#shareButton.failed {
+    background: #efefef;
+    color: indianred;
+    border: 1px solid indianred !important;
+}
+
 #wordleNumber {
     position: absolute;
-    top: -28px;
+    top: -24px;
     right: 0px;
-    color: #333;
+    color: var(--drk-grey);
     letter-spacing: 0.5px;
     font-size: 12px;
     font-weight: 500;

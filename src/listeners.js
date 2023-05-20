@@ -2,7 +2,7 @@ import { game } from './app';
 import { view } from './view';
 import { archive } from './archive';
 import { share } from './share';
-import { countRowsCompleted, copyToClipboard } from './utils';
+import { countRowsCompleted, copyToClipboard, readFromClipboard } from './utils';
 
 view.hideBoard();
 view.renderSelectionPrompt();
@@ -118,6 +118,7 @@ document.addEventListener('click', e => {
     }
 
     if (e.target.id == 'shareButton') {
+        const button = e.target;
         const board = game.board;
         const emojis = share.generateWordleEmojis(board);
         const num = archive.getWordNumber(game.winningWord);

@@ -20,10 +20,24 @@ export function countRowsCompleted(board) {
 }
 
 export async function copyToClipboard(text) {
+    const button = document.getElementById('shareButton');
     try {
         await navigator.clipboard.writeText(text);
+        button.textContent = '\u2713 Copied!';
+        button.classList.add('copied');
     } catch (err) {
         console.error('Failed to copy text:', err);
+        button.textContent = 'Copy Failed.';
+        button.classList.add('failed');
+    }
+}
+
+export async function readFromClipboard() {
+    try {
+        const text = await navigator.clipboard.readText();
+        console.log(text)
+    } catch (err) {
+        console.error('Failed to read clipboard contents:', err);
     }
 }
 
