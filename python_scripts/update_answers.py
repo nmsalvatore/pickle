@@ -6,6 +6,8 @@ import requests
 from bs4 import BeautifulSoup
 from dotenv import load_dotenv
 
+from answers import get_wordle_answers, write_answers_to_json
+
 load_dotenv()
 
 
@@ -52,6 +54,13 @@ def add_word_to_answers(filename, new_answer):
         # Write the updated list back to the JSON file
         with open(filename, "w") as outfile:
             json.dump(wordle_data, outfile, indent=2)
+
+    # If new worlde number is not next in the list and isn't already in list, rewrite answers.json
+    else:
+        all_answers = get_wordle_answers()
+        answers_json_path = os.getenv('PYTHON_ANSWERS_JSON_PATH')
+        write_answers_to_json(all_answers, answers_json_path)
+        add_word_to_answers(answers_json_path, new_answer)
 
 
 if __name__ == '__main__':
