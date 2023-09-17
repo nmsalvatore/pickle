@@ -57,10 +57,15 @@ def add_word_to_answers(filename, new_answer):
 
     # If new worlde number is not next in the list and isn't already in list, rewrite answers.json
     else:
+        # Get all wordle answers
         all_answers = get_wordle_answers()
-        answers_json_path = os.getenv('PYTHON_ANSWERS_JSON_PATH')
-        write_answers_to_json(all_answers, answers_json_path)
-        add_word_to_answers(answers_json_path, new_answer)
+
+        # Add the new word to the list
+        all_answers.append(new_answer)
+
+        # Write answers to JSON file
+        write_answers_to_json(all_answers, filename)
+        print(f'{filename} has been successfully updated.')
 
 
 if __name__ == '__main__':
